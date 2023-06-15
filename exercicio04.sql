@@ -26,13 +26,13 @@ create table genero_filme (
 
 insert into genero (nome) values ('Ação'), ('Aventura'),('Comédia'), ('Drama'), ('Ficção Científica'), ('Romance'), ('Terror');
 
-insert into filme (nome, duracaoMinutos) values ('O senhor dos Anéis', 300), ('Rambo', 90), ('Stallone Cobra', 90);
+insert into filme (nome, duracaoMinutos) values ('O senhor dos Anéis', 300), ('Rambo', 90), ('Stallone Cobra', 90), ('Comandos em Ação', 90);
 
-insert into genero_filme (filme_id, genero_id) values (1, 2), (2, 1), (3, 1);
+insert into genero_filme (filme_id, genero_id) values (1, 2), (2, 1), (3, 1), (4, 2);
 
 insert into ator (nome, dataNascimento, altura, peso) values ('Sylvester Stallone', '1946-07-06', 1.77, 96), ('Orlando Bloom', '1977-01-13', 1.80, 70), ('Elijah Wood', '1981-01-28', 1.68, 70);
 
 select filme.nome, filme.duracaoMinutos from filme
 inner join genero_filme on filme.filme_id = genero_filme.filme_id
 inner join genero on genero_filme.genero_id = genero.genero_id
-where genero.nome = 'Ação';
+where filme.nome ilike '%Ação';
